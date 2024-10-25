@@ -8,3 +8,19 @@
 {% endblock header_image %}
 
 {% block header_title %}Register a New User{% endblock header_title %}
+{% block content %}
+<form action="/users/register/" method="POST" class="p-4 border rounded bg-light text-dark">
+    {% comment %} {% csrf_token %} {% endcomment %}
+    {% comment %} {{ form }} {% endcomment %}
+    <div class="mb-3"><label for="{{form.username.id_for_label}}">Username</label></div>
+    
+    {{form.username}}
+    <div class="mb-3"><label for="{{form.password1.id_for_label}}">Password</label></div>
+
+    {{form.password1}}
+    <div class="mb-3"><label for="{{form.password2.id_for_label}}">Password Confirmation</label></div>
+    
+    {{form.password2}}
+    <button>Submit</button>
+</form>
+{% endblock content %}
